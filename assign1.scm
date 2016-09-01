@@ -55,18 +55,6 @@
 			)
 		)
 	(inspect(min2 a (min2 b (min2 c (min2 d e)))))
-
 	)
-
-
-(define (run2)
-	(define a 1)
-	(define b 2)
-	(define c 3)
-	(define d 4)
-	(define e 5)
-	(inspect (min5 a b c d e))
-	)
-
 
 (run2)
