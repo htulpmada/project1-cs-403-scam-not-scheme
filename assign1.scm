@@ -85,9 +85,12 @@
 ;	(inspect X)
 	(define c (cos X))
 ;	(inspect c)
-	(define cval (* c 255) )
+	(define cval (* c 255))
 ;	(inspect cval)
-	)
+	(define py (- x pi))
+	(define X ())
+	(define yval (+ y 255))	
+)
 
 
 
