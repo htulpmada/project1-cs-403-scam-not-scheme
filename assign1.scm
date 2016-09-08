@@ -44,18 +44,23 @@
         (define d 4)
         (define e 5)
         (inspect (min5 a b c d e))
-	(inpsect (min5 e d c b a))
-	(inpsect (min5 a e c d b))
-	(inpsect (min5 e c e b a))
+	(inspect (min5 e d c b a))
+	(inspect (min5 a e c d b))
+	(inspect (min5 e c e b a))
 	)
 
 
 (define (run3)
-	(inspect(cym 0) )
-	(inspect(cym 25) )
-	(inspect(cym 50) )
-	(inspect(cym 75) )
-	(inspect(cym 100) )
+	(define f 0.0)
+	(define g 25.0)
+	(define h 50.0)
+	(define i 75.0)
+	(define j 100.0)
+	(inspect (cym f) )
+	(inspect (cym g) )
+	(inspect (cym h) )
+	(inspect (cym i) )
+	(inspect (cym j) )
 	)
 
 
@@ -72,8 +77,16 @@
 
 
 (define(cym x)
-	(define c (cos x)
-	(define y (
+	(define pi 3.14159265358979323846)
+;	(inspect pi)
+	(define px (* x pi))
+;	(inspect px)
+	(define X (* px .005))
+;	(inspect X)
+	(define c (cos X))
+;	(inspect c)
+	(define cval (* c 255) )
+;	(inspect cval)
 	)
 
 
