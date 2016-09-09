@@ -82,10 +82,12 @@
 	(define X (* px .005))
 	(define c (cos X))
 	(define cval (* c 255))
+	(define cval (integer cval))
 	(inspect cval)
 	(define py (* x pi .01))
 	(define y (- 1 (sin py)))
 	(define yval (* y 255))
+	(define yval (integer yval))
 	(inspect yval)
 )
 
