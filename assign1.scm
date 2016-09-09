@@ -89,6 +89,11 @@
 	(define yval (* y 255))
 	(define yval (integer yval))
 	(inspect yval)
+	(define pm (+ (* x .01 1.5 pi) (* 1.5 pi)))
+	(define m (- 1 (sin pm)))
+	(define mval (* m 255 .5))
+	(define mval (integer mval))
+	(inspect mval)
 )
 
 
