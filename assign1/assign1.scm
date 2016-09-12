@@ -60,8 +60,8 @@
 	)
 
 (define (run4)
-	(inspect (root5 31251 5))
-	(inspect (root5 25 5))
+	(inspect (root5 31251 1))
+	(inspect (root5 25 1))
 )
 
 
@@ -94,12 +94,13 @@
 	(define c (cos X))
 	(define cval (* c 255))
 	(define cval (int cval))
- 	(inspect cval)
+; 	(inspect cval)
 ;	(inspect(toHex cval))
 	(define py (* x pi .01))
 	(define y (sin py))
 	(define Y (- 1  y))
 	(define yv (* Y 255))
+ 	(inspect yv)
 	(define yval (int yv))
 ;254 should be 255
  	(inspect yval)
@@ -107,7 +108,7 @@
 	(define m (- 1 (sin pm)))
 	(define mval (* m 255 .5))
 	(define mval (int mval))
- 	(inspect mval)
+; 	(inspect mval)
 	(define color(string+ "#" (toHex cval) (toHex yval) (toHex mval)))
 ;	(color)
 )
@@ -116,37 +117,61 @@
 	(inspect "start")
 	(define x number)
 	(inspect x)
-; helper functions
-	(define (sq q) (* q q))
-	(define (cu c) (* c c c))
-	(define (frth f) (* f f f f))
-	(define (fifth fi) (* fi fi fi fi fi))
+	(define (guess a n g )
+	   (define div (real .2))
+;	   (inspect div)
+	   (define i (* (- n 1) g))
+;	   (inspect i)
+	   (define j (* g g g g))
+;	   (inspect j)
+	   (define j (/ 1 (real j)))
+;	   (inspect j)
+	   (define q (real (* a  j)))
+;	   (inspect q)
+	   (define yk (* div (+ i q)))
+    	   (inspect yk)
+	  )
+      (define xk(guess x 5 g ))
+      (define xk1(guess x 5 xk))
+      (define (loop xkk xkk1)
+	(inspect xk1)
+	(inspect xkk1)
+	(cond 
+	  ((< (- xkk xkk1) .00001 xk1))
+	  (else xkk1)
+	)
+      )
+	(inspect(loop xk xk1))
+)
+
+
+
 
 ;square root
-	(define quo1 (/ x g) )
-	(inspect quo1)
-	(define	func1 (+ g quo1 ))
-	(inspect func1)
-	(define funcsq (* g g))
-	(define g1 (* .5 func1))
-(inspect g1)
+;	(define quo1 (/ x g) )
+;	(inspect quo1)
+;	(define	func1 (+ g quo1 ))
+;	(inspect func1)
+;	(define funcsq (* g g))
+;	(define g1 (* .5 func1))
+;(inspect g1)
 ;cube root
-	(define quo2 (/ x g1))
-	(define func2 (* (+ (* g1 2 ) quo2) .33333333 ))
-	(define g2 (cu func2))
-(inspect g2)
-;fourth root
-	(define quo3 (/ x g2))
-	(define func3 (+ quo3 (* 3 g2)))
-	(define g3 (frth (* .25 func3)))
-(inspect g3)
-;fifth root
-	(define quo4 (/ x g3))
-	(define func4 (+ (* g3 4) quo4))
-	(define ans (* .2 func4 ))
-(inspect ans)
+;	(define quo2 (/ x g1))
+;	(define func2 (* (+ (* g1 2 ) quo2) .33333333 ))
+;	(define g2 (cu func2))
+;(inspect g2)
+;;fourth root
+;	(define quo3 (/ x g2))
+;	(define func3 (+ quo3 (* 3 g2)))
+;	(define g3 (frth (* .25 func3)))
+;(inspect g3)
+;;fifth root
+;	(define quo4 (/ x g3))
+;	(define func4 (+ (* g3 4) quo4))
+;	(define ans (* .2 func4 ))
+;(inspect ans)
 
-)
+;)
 
 
 
