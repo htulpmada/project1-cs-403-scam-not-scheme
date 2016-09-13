@@ -34,34 +34,35 @@
 	)
 
 (define (run2)
-        (define a 1)
-        (define b 2)
-        (define c 3)
-        (define d 4)
-        (define e 5)
-        (inspect (min5 a b c d e))
-	(inspect (min5 e d c b a))
-	(inspect (min5 a e c d b))
-	(inspect (min5 e c e b a))
+        (inspect (min5 1 2 3 4 5))
+	(inspect (min5 5 4 3 2 1))
+	(inspect (min5 0 0 0 0 0))
+	(inspect (min5 0 0 1 0 0))
+	(inspect (min5 5 1 3 2 4))
+	(inspect (min5 100 -20 -20.000000000000000001 5 -100000000000000000))
+	(inspect (min5 5 -5 5 -5 5))
 	)
 
 
 (define (run3)
-	(define f 0)
-	(define g 25)
-	(define h 50)
-	(define i 75)
-	(define j 100)
-	(inspect(cym f ))
-	(inspect(cym g ))
-	(inspect(cym h ))
-	(inspect(cym i ))
-	(inspect(cym j ))
+	(inspect(cym 0 ))
+	(inspect(cym 10 ))
+	(inspect(cym 20 ))
+	(inspect(cym 30 ))
+	(inspect(cym 40 ))
+	(inspect(cym 50 ))
+	(inspect(cym 60 ))
+	(inspect(cym 70 ))
+	(inspect(cym 80 ))
+	(inspect(cym 90 ))
+	(inspect(cym 100 ))
 	)
 
 (define (run4)
-	(inspect (root5 31251 1))
-	(inspect (root5 25 1))
+	(inspect (root5 1000000 1))
+	(inspect (root5 7 1))
+	(inspect (root5 .0006 1))
+	(inspect (root5 589e-12 1))
 )
 
 
@@ -72,7 +73,7 @@
 			(else y)
 			)
 		)
-	(inspect(min2 a (min2 b (min2 c (min2 d e)))))
+	(min2 a (min2 b (min2 c (min2 d e))))
 	)
 
 
@@ -100,23 +101,30 @@
 	(define y (sin py))
 	(define Y (- 1  y))
 	(define yv (* Y 255))
- 	(inspect yv)
-	(define yval (int yv))
+ ;	(inspect yv)
+	(if(<(abs(- yv 255)).001)
+		(define yval 255)
+		(define yval (int yv)))
 ;254 should be 255
- 	(inspect yval)
+; 	(inspect yval)
 	(define pm (+ (* x .01 1.5 pi) (* 1.5 pi)))
 	(define m (- 1 (sin pm)))
 	(define mval (* m 255 .5))
 	(define mval (int mval))
-; 	(inspect mval)
+ ;	(inspect mval)
 	(define color(string+ "#" (toHex cval) (toHex yval) (toHex mval)))
 ;	(color)
 )
 
-(define (root5 number  g)
-	(inspect "start")
+(define (root5 number  g);sqrt-iter from book
+;	(inspect "start")
 	(define x number)
-	(inspect x)
+;	(inspect x)
+
+	(define (square z)
+	  (* z z z z z ))
+	(define (goodEnough x g)
+		(< (abs (- (square g) x)) .0000001))
 	(define (guess a n g )
 	   (define div (real .2))
 ;	   (inspect div)
@@ -129,52 +137,30 @@
 	   (define q (real (* a  j)))
 ;	   (inspect q)
 	   (define yk (* div (+ i q)))
-    	   (inspect yk)
+;    	   (inspect yk)
 	  )
-      (define xk(guess x 5 g ))
-      (define xk1(guess x 5 xk))
-      (define (loop xkk xkk1)
-	(inspect xk1)
-	(inspect xkk1)
-	(cond 
-	  ((< (- xkk xkk1) .00001 xk1))
-	  (else xkk1)
-	)
-      )
-	(inspect(loop xk xk1))
+	
+	(if (goodEnough x g)
+		g
+		(root5 x (guess x 5 g)))
+
 )
 
-
-
-
-;square root
-;	(define quo1 (/ x g) )
-;	(inspect quo1)
-;	(define	func1 (+ g quo1 ))
-;	(inspect func1)
-;	(define funcsq (* g g))
-;	(define g1 (* .5 func1))
-;(inspect g1)
-;cube root
-;	(define quo2 (/ x g1))
-;	(define func2 (* (+ (* g1 2 ) quo2) .33333333 ))
-;	(define g2 (cu func2))
-;(inspect g2)
-;;fourth root
-;	(define quo3 (/ x g2))
-;	(define func3 (+ quo3 (* 3 g2)))
-;	(define g3 (frth (* .25 func3)))
-;(inspect g3)
-;;fifth root
-;	(define quo4 (/ x g3))
-;	(define func4 (+ (* g3 4) quo4))
-;	(define ans (* .2 func4 ))
-;(inspect ans)
-
-;)
-
-
+(define (my-and a b)
+        (if (true? a)
+            b
+            #f
+            )
+        )
+(define (task1)
+    (define x 10)
+    (define a (readInt))
+    (inspect (and (< a x) (= (% a 2) 1)))
+    (inspect (my-and (< a 10) (= (% a 2) 1)))
+)
 
 (run2)
 (run3)
 (run4)
+;(task1)
+
