@@ -13,7 +13,9 @@
 
 
 (define (run5)
-	(exprTest () )
+	(inspect(bico 5 4 ))
+	(inspect(bico 7 2 ))
+	(inspect(bico 20 3 ))
 	)
 
 
@@ -146,6 +148,25 @@
 
 )
 
+(define (bico i j)
+	(define (factorial n)
+            (define (iter store src)
+                (cond
+                    ((= src 1) store)
+                    (else(iter(* store src)(- src 1)))
+                    )
+                )
+        (iter 1 n)
+        )
+	(/ (factorial i) (* (factorial j) (factorial(- i j))))
+)
+
+
+
+
+
+
+
 (define (my-and a b)
         (if (true? a)
             b
@@ -163,4 +184,4 @@
 (run3)
 (run4)
 ;(task1)
-
+(run5)
