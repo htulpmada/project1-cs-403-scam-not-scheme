@@ -3,12 +3,11 @@
 	)
 
 (define (run1)
-	(exprTest () )
+	(println " for our example we will use (and (< a 5) (=! a 2 )) for our function call to both and & my-and. in the case of (and) the left side argument is evaluated first and the right argument is not evaluated at all bacause there is no way for the entire expression to become true, where as the my-and will evaluate both arguments and the compare them to each other. ")
 	)
 
 
 (define (run4)
-	(exprTest () )
 	)
 
 
@@ -20,30 +19,26 @@
 
 
 (define (run6)
-	(exprTest () )
 	)
 
 (define (run7)
-	(exprTest () )
 	)
 
 (define (run8)
-	(exprTest () )
 	)
 
 (define (run9)
-	(exprTest () )
 	)
 
-(define (run2)
-        (inspect (min5 1 2 3 4 5))
-	(inspect (min5 5 4 3 2 1))
-	(inspect (min5 0 0 0 0 0))
-	(inspect (min5 0 0 1 0 0))
-	(inspect (min5 5 1 3 2 4))
-	(inspect (min5 100 -20 -20.000000000000000001 5 -100000000000000000))
-	(inspect (min5 5 -5 5 -5 5))
-	)
+;(define (run2)
+;        (inspect (min5 1 2 3 4 5))
+;	(inspect (min5 5 4 3 2 1))
+;	(inspect (min5 0 0 0 0 0))
+;	(inspect (min5 0 0 1 0 0))
+;	(inspect (min5 5 1 3 2 4))
+;	(inspect (min5 100 -20 -20.000000000000000001 5 -100000000000000000))
+;	(inspect (min5 5 -5 5 -5 5))
+;	)
 
 
 (define (run3)
@@ -61,22 +56,22 @@
 	)
 
 (define (run4)
-	(inspect (root5 1000000 1))
-	(inspect (root5 7 1))
-	(inspect (root5 .0006 1))
-	(inspect (root5 589e-12 1))
+	(inspect (root5 1000000))
+	(inspect (root5 7))
+	(inspect (root5 .0006))
+	(inspect (root5 589e-12))
 )
 
 
-(define (min5 a b c d e)
-	(define (min2 x y)
-		(cond 
-			((< x y) x)
-			(else y)
-			)
-		)
-	(min2 a (min2 b (min2 c (min2 d e))))
-	)
+;(define (min5 a b c d e)
+;	(define (min2 x y)
+;		(cond 
+;			((< x y) x)
+;			(else y)
+;			)
+;		)
+;	(min2 a (min2 b (min2 c (min2 d e))))
+;	)
 
 
 
@@ -118,8 +113,10 @@
 ;	(color)
 )
 
-(define (root5 number  g);sqrt-iter from book
+(define (root5 number);sqrt-iter from book
 ;	(inspect "start")
+	(define g 1)
+	(define (root5.2 g)
 	(define x number)
 ;	(inspect x)
 
@@ -144,7 +141,7 @@
 	
 	(if (goodEnough x g)
 		g
-		(root5 x (guess x 5 g)))
+		(root5.2 x (guess x 5 g))))
 
 )
 
@@ -167,21 +164,8 @@
 
 
 
-(define (my-and a b)
-        (if (true? a)
-            b
-            #f
-            )
-        )
-(define (task1)
-    (define x 10)
-    (define a (readInt))
-    (inspect (and (< a x) (= (% a 2) 1)))
-    (inspect (my-and (< a 10) (= (% a 2) 1)))
-)
-
-(run2)
-(run3)
-(run4)
-;(task1)
-(run5)
+;(run1)
+;(run2)
+;(run3)
+;(run4)
+;(run5)
