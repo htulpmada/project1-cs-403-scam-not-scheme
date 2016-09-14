@@ -7,8 +7,8 @@
 	)
 
 
-(define (run4)
-	)
+;(define (run4)
+;	)
 
 
 (define (run5)
@@ -17,17 +17,17 @@
 	)
 
 
-(define (run6)
-	)
+;(define (run6)
+;	)
 
-(define (run7)
-	)
+;(define (run7)
+;	)
 
-(define (run8)
-	)
+;(define (run8)
+;	)
 
-(define (run9)
-	)
+;(define (run9)
+;	)
 
 (define (run2)
         (inspect (min5 1 2 3 4 5))
@@ -157,11 +157,29 @@
 	(/ (factorial i) (* (factorial j) (factorial(- i j))))
 )
 
+(define (egypt/ num div)
+	(define a 1)
+	(define c num)
+	(define b div)
+	(define (double x) (+ x x));need to define
+	(define (dblTil a2 b2 c2)
+	 (cond((> b2 c2) (define newvals (list a2 b2 c2)))
+	  (else (dblTil (double a2) (double b2) c2))
+	 )
+	)
+	(inspect(dblTil a b c))
+	(define newvals (dblTil a b c))
+	(define a (getElement newvals 0))
+	(define b (getElement newvals 1))
+	(define c (getElement newvals 2))
+	(define d 0)
+
+
+)
 
 
 
-
-
+(egypt/ 1960 56)
 
 ;(run1)
 ;(run2)
