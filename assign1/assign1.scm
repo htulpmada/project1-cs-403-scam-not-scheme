@@ -14,7 +14,6 @@
 (define (run5)
 	(inspect(bico 5 4 ))
 	(inspect(bico 7 2 ))
-	(inspect(bico 20 3 ))
 	)
 
 
@@ -30,15 +29,15 @@
 (define (run9)
 	)
 
-;(define (run2)
-;        (inspect (min5 1 2 3 4 5))
-;	(inspect (min5 5 4 3 2 1))
-;	(inspect (min5 0 0 0 0 0))
-;	(inspect (min5 0 0 1 0 0))
-;	(inspect (min5 5 1 3 2 4))
-;	(inspect (min5 100 -20 -20.000000000000000001 5 -100000000000000000))
-;	(inspect (min5 5 -5 5 -5 5))
-;	)
+(define (run2)
+        (inspect (min5 1 2 3 4 5))
+	(inspect (min5 5 4 3 2 1))
+	(inspect (min5 0 0 0 0 0))
+	(inspect (min5 0 0 1 0 0))
+	(inspect (min5 5 1 3 2 4))
+	(inspect (min5 100 -20 -20.000000000000000001 5 -100000000000000000))
+	(inspect (min5 5 -5 5 -5 5))
+	)
 
 
 (define (run3)
@@ -63,15 +62,15 @@
 )
 
 
-;(define (min5 a b c d e)
-;	(define (min2 x y)
-;		(cond 
-;			((< x y) x)
-;			(else y)
-;			)
-;		)
-;	(min2 a (min2 b (min2 c (min2 d e))))
-;	)
+(define (min5 a b c d e)
+	(define (min2 x y)
+		(cond 
+			((< x y) x)
+			(else y)
+			)
+		)
+	(min2 a (min2 b (min2 c (min2 d e))))
+	)
 
 
 
@@ -102,7 +101,6 @@
 	(if(<(abs(- yv 255)).001)
 		(define yval 255)
 		(define yval (int yv)))
-;254 should be 255
 ; 	(inspect yval)
 	(define pm (+ (* x .01 1.5 pi) (* 1.5 pi)))
 	(define m (- 1 (sin pm)))
@@ -116,7 +114,7 @@
 (define (root5 number);sqrt-iter from book
 ;	(inspect "start")
 	(define g 1)
-	(define (root5.2 g)
+	(define (root5.2 number g)
 	(define x number)
 ;	(inspect x)
 
@@ -142,6 +140,7 @@
 	(if (goodEnough x g)
 		g
 		(root5.2 x (guess x 5 g))))
+	(root5.2 number g)
 
 )
 

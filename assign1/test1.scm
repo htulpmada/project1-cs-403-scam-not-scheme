@@ -67,7 +67,7 @@
         (println "\n\n------your tests--------------------\n")
         (run5)
         (println "\n-------my tests---------------------\n")
-        (println "(bico 4 2)")
+        (inspect (bico 4 2))
         (println "    [it should be 6]")
         )
     (println " NOT IMPLEMENTED")
