@@ -194,15 +194,23 @@
 
 (define (halve x)
 	(define (recurHalf x y ts total)
-	  (cond ((>(double2 x) y)
-	    (cond ((>= 0 (- y x))total)
-	    (else (inspect 1)
-	(inspect (- y x))
-	(inspect (+ ts toal))))
-;(recurHalf 1 (- y x) 0 (+ ts total))))
+	 (inspect x)
+	 (inspect y)
+	 (inspect ts)
+	 (inspect total)
+	  (cond 
+	    ((>(double2 x) y)
+;	    (inspect (>= 0 (- y x)))
+	    (cond 
+	      ((= 0 (- y x)) (inspect total))
+	      (else ;(inspect (- y x))
+	      ;(inspect (+ ts total))
+(recurHalf 1 (- y x) 0 (+ ts total))))
 	    )
-	(else (recurHalf (double x) y (double2 ts) total)))
+	  (else 
+	    (define ans(recurHalf (double x) y (double2 ts) total))))
 	  (recurHalf 1 y 0 (+ ts total))
+	  ans
 	   ; (else(recurHalf (double2 x) y (double2 ts)total))
 	  )
 	(recurHalf 1 x 0 0)
