@@ -24,7 +24,7 @@
 ;	)
 
 (define (run8)
-	(egypt/ 1960 56)
+	(inspect(egypt/ 1960 56))
 	)
 
 ;(define (run9)
@@ -168,17 +168,35 @@
 	  (else (dblTil (double a2) (double b2) c2))
 	 )
 	)
-	(inspect(dblTil a b c))
 	(define newvals (dblTil a b c))
+(inspect newvals)
 	(define a (getElement newvals 0))
 	(define b (getElement newvals 1))
 	(define c (getElement newvals 2))
 	(define d 0)
+
+
 	(define (halfTil a b c d)
-	(
-
-
+(inspect a)
+	(cond((< 0 a)
+(inspect a)
+(inspect a)
+(inspect b)
+(inspect c)
+(inspect d)
+	  (cond((<= b c )
+(inspect a)
+(inspect b)
+(inspect c)
+(inspect d)
+	    (define d(+ a d))
+	    (define c(- c b))))
+	  (define a (halve a)) 
+	  (define b (halve b))
+	  (halfTil a b c d))
+	(else d)) 
 	)
+	(halfTil a b c d)
 
 
 )
@@ -197,31 +215,22 @@
 
 (define (halve x)
 	(define (recurHalf x y ts total)
-	 (inspect x)
-	 (inspect y)
-	 (inspect ts)
-	 (inspect total)
 	  (cond 
 	    ((>(double2 x) y)
-	    (inspect (>= 0 (- y x)))
 	    (cond 
-	      ((>= 0 (- y x)) (cond ((= 0 total)1)
-				(else total )
+	      ((>= 0 (- y x)) (cond ((= 0 total)(+ total ts))
+				(else (+ ts total) )
 				))
 	      (else 
-		;(inspect (- y x))
-		;(inspect (+ ts total))
 		(recurHalf 1 (- y x) 0 (+ ts total))))
 	    )
-	  (else (inspect "repeat")
+	  (else 
 	    (define ans(recurHalf (double x) y (double2 ts) total))))	
-;  (recurHalf 1 y 0 (+ ts total))
-;	  (inspect ans)
 	  )
 	(recurHalf 1 x 0 0)
 )
 
-(inspect (halve 9))
+;(inspect (halve 9))
 
 ;(run1)
 ;(run2)
