@@ -26,8 +26,10 @@
 ;(define (run8)
 ;	)
 
-;(define (run9)
-;	)
+(define (run8)
+	(egypt/ 1960 56)
+	)
+
 
 (define (run2)
         (inspect (min5 1 2 3 4 5))
@@ -161,7 +163,10 @@
 	(define a 1)
 	(define c num)
 	(define b div)
-	(define (double x) (+ x x));need to define
+	(define (double x) 
+		(define x2 (+ x x))
+	x2
+	)
 	(define (dblTil a2 b2 c2)
 	 (cond((> b2 c2) (define newvals (list a2 b2 c2)))
 	  (else (dblTil (double a2) (double b2) c2))
@@ -175,11 +180,35 @@
 	(define d 0)
 
 
+)	
+(define (double x) 
+	(define x2 (+ x x))
+	x2
+	)
+
+(define (double2 x) 
+	(define x2 (+ x x))
+	(cond((= 0 x2)  1)
+	(else x2))
+	)
+
+(define (halve x)
+	(define (recurHalf x y ts total)
+	  (cond ((>(double2 x) y)
+	    (cond ((>= 0 (- y x))total)
+	    (else (inspect 1)
+	(inspect (- y x))
+	(inspect (+ ts toal))))
+;(recurHalf 1 (- y x) 0 (+ ts total))))
+	    )
+	(else (recurHalf (double x) y (double2 ts) total)))
+	  (recurHalf 1 y 0 (+ ts total))
+	   ; (else(recurHalf (double2 x) y (double2 ts)total))
+	  )
+	(recurHalf 1 x 0 0)
 )
 
-
-
-(egypt/ 1960 56)
+(inspect(halve 4))
 
 ;(run1)
 ;(run2)
