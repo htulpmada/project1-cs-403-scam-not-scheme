@@ -18,7 +18,7 @@
 
 
 (define (run6)
-;	(inspect ((curry + 1)2))
+;	(inspect ((((curry + 1)2)3)4))
 	)
 
 ;(define (run7)
@@ -35,7 +35,7 @@
 (define (run10)
 	(inspect(ramanujan 1))
 	(inspect(ramanujan 2))
-	(inspect(ramanujan 4))
+	(inspect(ramanujan 40))
 	)
 
 
@@ -168,7 +168,9 @@
 )
 
 (define (curry f a)
-	(define f1(lambda (f) (lambda (a) (lambda (b) (lambda (c) (lambda (d) (f a b c d)))))))
+;	lambda (f) (lambda (a) (lambda (b) (lambda (c) (apply f( a b c d)))))
+
+	(lambda (f) (lambda (a) (lambda (b) (lambda (c) (lambda (d) (f d c b a))))))
 ;	(lambda (y) (apply f (cons a y)))
 ;	(inspect f)
 ;	(inspect carg)
@@ -243,9 +245,13 @@
 	))
 	)
 	(recurRam 0 d)
-
 )
 
+(define (iramanujan d)
+	(define (iterRam k r)	
+	)
+
+)
 
 ;(inspect (halve 9))
 
