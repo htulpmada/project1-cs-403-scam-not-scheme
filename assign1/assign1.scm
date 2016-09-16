@@ -168,7 +168,7 @@
 )
 
 (define (curry f a)
-	(lambda (f) (lambda (a) (lambda (b) (lambda (c) (lambda (d) (f a b c d))))))
+	(define f1(lambda (f) (lambda (a) (lambda (b) (lambda (c) (lambda (d) (f a b c d)))))))
 ;	(lambda (y) (apply f (cons a y)))
 ;	(inspect f)
 ;	(inspect carg)
@@ -238,7 +238,7 @@
 (define (ramanujan d)
 	(define (recurRam k r)
 	(cond
-	((> k r) (+ 6 k))
+	((= k r) (sqrt(+ 6 k)))
 	(else (* (+ k 1) (sqrt (+ 6 k (recurRam (+ k 1) r ))))
 	))
 	)
