@@ -17,8 +17,9 @@
 	)
 
 
-;(define (run6)
-;	)
+(define (run6)
+;	(inspect ((curry + 1)2))
+	)
 
 ;(define (run7)
 ;	)
@@ -29,6 +30,14 @@
 
 ;(define (run9)
 ;	)
+
+
+(define (run10)
+	(inspect(ramanujan 1))
+	(inspect(ramanujan 2))
+	(inspect(ramanujan 4))
+	)
+
 
 (define (run2)
         (inspect (min5 1 2 3 4 5))
@@ -158,6 +167,15 @@
 	(/ (factorial i) (* (factorial j) (factorial(- i j))))
 )
 
+(define (curry f a)
+	(lambda (f) (lambda (a) (lambda (b) (lambda (c) (lambda (d) (f a b c d))))))
+;	(lambda (y) (apply f (cons a y)))
+;	(inspect f)
+;	(inspect carg)
+;	(lambda (x) (f x))
+)
+
+
 (define (egypt/ num div)
 	(define a 1)
 	(define c num)
@@ -216,6 +234,18 @@
 	  )
 	(recurHalf 1 x 0 0)
 )
+
+(define (ramanujan d)
+	(define (recurRam k r)
+	(cond
+	((> k r) (+ 6 k))
+	(else (* (+ k 1) (sqrt (+ 6 k (recurRam (+ k 1) r ))))
+	))
+	)
+	(recurRam 0 d)
+
+)
+
 
 ;(inspect (halve 9))
 
