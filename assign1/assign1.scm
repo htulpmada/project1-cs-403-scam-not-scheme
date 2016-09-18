@@ -5,11 +5,35 @@
 (define (run1)
 	(println " for our example we will use (and (< a 5) (=! a 2 )) for our function call to both and & my-and. in the case of (and) the left side argument is evaluated first and the right argument is not evaluated at all bacause there is no way for the entire expression to become true, where as the my-and will evaluate both arguments and the compare them to each other. ")
 	)
+(define (run2)
+        (inspect (min5 1 2 3 4 5))
+	(inspect (min5 5 4 3 2 1))
+	(inspect (min5 0 0 0 0 0))
+	(inspect (min5 0 0 1 0 0))
+	(inspect (min5 5 1 3 2 4))
+	(inspect (min5 100 -20 -20.000000000000000001 5 -100000000000000000))
+	(inspect (min5 5 -5 5 -5 5))
+	)
+(define (run3)
+	(inspect(cym 0 ))
+	(inspect(cym 10 ))
+	(inspect(cym 20 ))
+	(inspect(cym 30 ))
+	(inspect(cym 40 ))
+	(inspect(cym 50 ))
+	(inspect(cym 60 ))
+	(inspect(cym 70 ))
+	(inspect(cym 80 ))
+	(inspect(cym 90 ))
+	(inspect(cym 100 ))
+	)
 
-
-;(define (run4)
-;	)
-
+(define (run4)
+	(inspect (root5 1000000))
+	(inspect (root5 7))
+	(inspect (root5 .0006))
+	(inspect (root5 5.89e-12))
+)
 
 (define (run5)
 	(inspect(bico 5 4 ))
@@ -20,7 +44,6 @@
 	(inspect(bico 0 0 ))
 	(inspect(bico 10 5 ))
 	)
-
 
 (define (run6)
 ;	(inspect ((((curry + 1)2)3)4))
@@ -71,40 +94,8 @@
 	(inspect(iramanujan 40))
 	(inspect(iramanujan 4000))
 	(println "task 10 seems to converge to four which is the first perfect square")
-	)
-
-
-(define (run2)
-        (inspect (min5 1 2 3 4 5))
-	(inspect (min5 5 4 3 2 1))
-	(inspect (min5 0 0 0 0 0))
-	(inspect (min5 0 0 1 0 0))
-	(inspect (min5 5 1 3 2 4))
-	(inspect (min5 100 -20 -20.000000000000000001 5 -100000000000000000))
-	(inspect (min5 5 -5 5 -5 5))
-	)
-
-
-(define (run3)
-	(inspect(cym 0 ))
-	(inspect(cym 10 ))
-	(inspect(cym 20 ))
-	(inspect(cym 30 ))
-	(inspect(cym 40 ))
-	(inspect(cym 50 ))
-	(inspect(cym 60 ))
-	(inspect(cym 70 ))
-	(inspect(cym 80 ))
-	(inspect(cym 90 ))
-	(inspect(cym 100 ))
-	)
-
-(define (run4)
-	(inspect (root5 1000000))
-	(inspect (root5 7))
-	(inspect (root5 .0006))
-	(inspect (root5 5.89e-12))
 )
+
 
 
 (define (min5 a b c d e)
@@ -115,9 +106,7 @@
 			)
 		)
 	(min2 a (min2 b (min2 c (min2 d e))))
-	)
-
-
+)
 
 (define(cym x)
 	(define (toHex n)
@@ -190,12 +179,11 @@
 	)
 )
 
-
 (define (egypt/ num div)
 	(define a 1)
 	(define c num)
 	(define b div)
-	(define (double x) (+ x x));need to define
+	(define (double x) (+ x x))
 	(define (dblTil a2 b2 c2)
 	 (cond((> b2 c2) (define newvals (list a2 b2 c2)))
 	  (else (dblTil (double a2) (double b2) c2))
@@ -230,7 +218,6 @@
   (else x2)) 
   ) 
 
-
 (define (halve x)
 	(define (recurHalf x y ts total)
 	  (cond 
@@ -249,7 +236,7 @@
 )
 
 (define (Numer)
-(lambda one 1)
+	(lambda one 1)
 )
 
 (define (Denom i)
@@ -260,21 +247,22 @@
 )
 
 (define (mystery dep aug f1 f2)
-	
 	(define (iterMystery i res)
-;	(inspect (f2 i))
-;	(inspect (+(f2 i)res))
-;	(inspect res)
 	(if
 	  (= i 0) 
 	  res
 	  (iterMystery(- i 1) (/ (f1 i) (+ (f2 i) res)))))
-;call iter here
 	(+ aug (iterMystery dep 0.0))
 )
 
-
-
+(define (zorp f i)
+	(define i1(f 1))
+	(define i2(f 2))
+	(define i3(f 3))
+	(define (iterZorp i1 i2 i3 f k)
+	
+	)
+)
 
 (define (ramanujan d)
 	(define (recurRam k r)
@@ -284,7 +272,6 @@
 	))
 	)
 	(recurRam 0 d)
-;	(iramanujan d) 
 )
 
 (define (iramanujan d)
@@ -297,7 +284,5 @@
 	)))
 	(iterRam d 0)
 )
-
-
 
 (println "assignment 1 loaded!")
