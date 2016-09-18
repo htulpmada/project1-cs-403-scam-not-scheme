@@ -14,6 +14,11 @@
 (define (run5)
 	(inspect(bico 5 4 ))
 	(inspect(bico 7 2 ))
+	(inspect(bico 1 1 ))
+	(inspect(bico 0 0 ))
+	(inspect(bico 12 7 ))
+	(inspect(bico 0 0 ))
+	(inspect(bico 10 5 ))
 	)
 
 
@@ -26,10 +31,21 @@
 
 (define (run8)
 	(inspect(egypt/ 1960 56))
+	(inspect(egypt/ 1000 50))
+	(inspect(egypt/ 25000 35))
+	(inspect(egypt/ 1920 3))
+	(inspect(egypt/ 325248 1.75 ))
 	)
 
-;(define (run9)
-;	)
+(define (run9)
+	(inspect(mystery 3 2 (Numer) Denom))
+	(inspect(mystery 2 2 (Numer) Denom))
+	(inspect(mystery 1 2 (Numer) Denom))
+	(inspect(mystery 10 1 (Numer) Denom))
+	(inspect(mystery 100 1 (Numer) Denom))
+	(inspect(mystery 1000 1 (Numer) Denom))
+	(println "the number converges to 1/((e)^.5-1)")
+)
 
 
 (define (run10)
@@ -54,6 +70,7 @@
 	(inspect(iramanujan 25))
 	(inspect(iramanujan 40))
 	(inspect(iramanujan 4000))
+	(println "task 10 seems to converge to four which is the first perfect square")
 	)
 
 
@@ -154,16 +171,9 @@
 )
 
 (define (bico i j)
-	(define (factorial n)
-            (define (iter store src)
-                (cond
-                    ((= src 1) store)
-                    (else(iter(* store src)(- src 1)))
-                    )
-                )
-        (iter 1 n)
-        )
-	(/ (factorial i) (* (factorial j) (factorial(- i j))))
+	(cond((< i j)#f)
+	((or (= 0 j) (= j i)) 1)
+	(else (+ (bico (- i 1) j) (bico (- i 1) (- j 1)))))
 )
 
 (define (curry f a)
@@ -238,6 +248,34 @@
 	(recurHalf 1 x 0 0)
 )
 
+(define (Numer)
+(lambda one 1)
+)
+
+(define (Denom i)
+	(if (not (= 0 (% i 3)))
+	1
+	(+ 1 (* 4 (/ i 3)))
+	)
+)
+
+(define (mystery dep aug f1 f2)
+	
+	(define (iterMystery i res)
+;	(inspect (f2 i))
+;	(inspect (+(f2 i)res))
+;	(inspect res)
+	(if
+	  (= i 0) 
+	  res
+	  (iterMystery(- i 1) (/ (f1 i) (+ (f2 i) res)))))
+;call iter here
+	(+ aug (iterMystery dep 0.0))
+)
+
+
+
+
 (define (ramanujan d)
 	(define (recurRam k r)
 	(cond
@@ -260,3 +298,6 @@
 	(iterRam d 0)
 )
 
+
+
+(println "assignment 1 loaded!")
