@@ -1,11 +1,5 @@
-
 (define (min5 a b c d e)
-        (define (min2 x y)
-                (cond
-                        ((< x y) x)
-                        (else y)
-                        )
-                )
-        (min2 a (min2 b (min2 c (min2 d e))))
-        )
-
+        (define (m x y)
+                (if(< x y) x y))
+        (m a (m b (m c (m d e))))
+)
